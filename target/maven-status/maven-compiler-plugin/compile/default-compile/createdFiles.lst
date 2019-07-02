@@ -1,0 +1,6 @@
+com\fcy\client\RuleController.class
+com\fcy\client\RuleConfig.class
+com\fcy\client\UruleClientApplication.class
+com\fcy\client\Cust.class
+com\fcy\client\Customer.class
+com\fcy\client\URuleServletRegistration.class

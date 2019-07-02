@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: com.fcy.client.UruleClientApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.31 s <<< FAILURE! - in com.fcy.client.UruleClientApplicationTests
+contextLoads(com.fcy.client.UruleClientApplicationTests)  Time elapsed: 0.115 s  <<< ERROR!
+com.bstek.urule.RuleException: com.bstek.urule.RuleException: Server request was failed, Response message : null
+	at com.fcy.client.UruleClientApplicationTests.st3(UruleClientApplicationTests.java:72)
+	at com.fcy.client.UruleClientApplicationTests.contextLoads(UruleClientApplicationTests.java:24)
+Caused by: com.bstek.urule.RuleException: Server request was failed, Response message : null
+	at com.fcy.client.UruleClientApplicationTests.st3(UruleClientApplicationTests.java:72)
+	at com.fcy.client.UruleClientApplicationTests.contextLoads(UruleClientApplicationTests.java:24)
+

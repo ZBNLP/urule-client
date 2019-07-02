@@ -1,0 +1,92 @@
+package com.fcy.client;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.bstek.urule.Utils;
+import com.bstek.urule.runtime.KnowledgePackage;
+import com.bstek.urule.runtime.KnowledgeSession;
+import com.bstek.urule.runtime.KnowledgeSessionFactory;
+import com.bstek.urule.runtime.service.KnowledgeService;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class UruleClientApplicationTests {
+
+    @Test
+    public void contextLoads() throws IOException {
+	st3();
+    }
+
+    public void st() throws IOException {
+
+	// 创建一个KnowledgeSession对象
+	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext()
+		.getBean(KnowledgeService.BEAN_ID);
+	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("data1/bao1");
+	KnowledgeSession session = KnowledgeSessionFactory.newKnowledgeSession(knowledgePackage);
+
+	Integer integer = Integer.valueOf(11);
+
+	Map<String, Object> pa = new HashMap();
+	pa.put("age", integer);
+	session.fireRules(pa);
+
+	// Customer s = new Customer();
+	// s.setAge(integer);
+	// session.insert(s);
+	// session.fireRules();
+	String result = (String) session.getParameter("str");
+	System.out.println("==========================>>>>>>" + result);
+
+    }
+
+    public void st2() throws IOException {
+
+	// 创建一个KnowledgeSession对象
+	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext()
+		.getBean(KnowledgeService.BEAN_ID);
+	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("data1/custage");
+	KnowledgeSession session = KnowledgeSessionFactory.newKnowledgeSession(knowledgePackage);
+
+	Customer s = new Customer();
+
+	Integer integer = Integer.valueOf(11);
+	s.setAge(integer);
+	session.insert(s);
+	session.fireRules();
+	Customer result = (Customer) session.getParameter("cust");
+    }
+    
+    public void st3() throws IOException {
+
+    	// 创建一个KnowledgeSession对象
+    	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext()
+    		.getBean(KnowledgeService.BEAN_ID);
+    	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("demo/levelTest");
+    	KnowledgeSession session = KnowledgeSessionFactory.newKnowledgeSession(knowledgePackage);
+
+    	Customer s = new Customer();
+
+    	s.setGender(true);
+    	s.setAge(23);
+    	s.setLevel(3);
+    	session.insert(s);
+    	session.fireRules();
+    	
+    	/*Customer s = new Customer();
+    	 s.setGender(true);
+    	 Integer integer = Integer.valueOf(33);
+    	 s.setAge(integer);
+    	 session.insert(s);
+    	 session.fireRules();*/
+    	//Customer result = (Customer) session.getParameter("cust");
+    }
+
+}
