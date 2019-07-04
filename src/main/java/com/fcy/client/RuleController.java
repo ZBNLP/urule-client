@@ -11,6 +11,7 @@ import com.bstek.urule.runtime.KnowledgePackage;
 import com.bstek.urule.runtime.KnowledgeSession;
 import com.bstek.urule.runtime.KnowledgeSessionFactory;
 import com.bstek.urule.runtime.service.KnowledgeService;
+import com.fcy.client.bean.Text;
 
 /**
  * Desc
@@ -26,7 +27,7 @@ public class RuleController {
 	// 创建一个KnowledgeSession对象
 	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext()
 		.getBean(KnowledgeService.BEAN_ID);
-	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("data1/custage");
+	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("文本安全规范/textSafeJudgeBag");
 	KnowledgeSession session = KnowledgeSessionFactory.newKnowledgeSession(knowledgePackage);
 
 	Integer integer = Integer.valueOf(data);
@@ -35,11 +36,25 @@ public class RuleController {
 	// param.put("age", integer);
 	// session.fireRules(param);
 
-	Customer s = new Customer();
+	/*Customer s = new Customer();
 	s.setAge(integer);
 	session.insert(s);
 	session.fireRules();
 	String result = (String) session.getParameter("str");
-	return String.valueOf(result);
+	return String.valueOf(result);*/
+	
+	Text text = new Text();
+	text.setStatus(1);
+	text.setIsSendBySys(false);
+	
+	session.insert(text);
+	session.fireRules();
+	
+	return data;
     }
+    
+    public static void main(String[] args) throws IOException {
+    	RuleController ruleControl = new RuleController();
+    	ruleControl.rule("555");
+	}
 }
