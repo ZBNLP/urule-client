@@ -30,8 +30,7 @@ public class UruleClientApplicationTests {
     public void st() throws IOException {
 
 	// 创建一个KnowledgeSession对象
-	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext()
-		.getBean(KnowledgeService.BEAN_ID);
+	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext().getBean(KnowledgeService.BEAN_ID);
 	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("data1/bao1");
 	KnowledgeSession session = KnowledgeSessionFactory.newKnowledgeSession(knowledgePackage);
 
