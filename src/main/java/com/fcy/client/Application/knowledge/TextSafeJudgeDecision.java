@@ -62,7 +62,8 @@ public class TextSafeJudgeDecision {
 	}
 	public static void main(String[] args) throws IOException {
 		//getDecision();
-		KnowledgeService knowledgeService = UruleClient.getKnowledgeService();
+		//KnowledgeService knowledgeService = UruleClient.getKnowledgeService();
+		KnowledgeService knowledgeService = UruleClient.KNOWLEDGE_SERVICE;
 		getDecision(knowledgeService);
 		getDecision(knowledgeService);
 		//getDecision(UruleClient.CONTEXT);

@@ -11,7 +11,9 @@ public class UruleClient {
 	
 	public static ConfigurableApplicationContext CONTEXT = SpringApplication.run(UruleClient.class);
 	
-	public static KnowledgeService getKnowledgeService() {
+	public static KnowledgeService KNOWLEDGE_SERVICE = getKnowledgeService();
+	
+	private static KnowledgeService getKnowledgeService() {
 		KnowledgeService knowledgeService = (KnowledgeService) CONTEXT.getBean(KnowledgeService.BEAN_ID);
 		return knowledgeService;
 	}
