@@ -37,8 +37,8 @@ public class TextLogicNode {
 		//return false;
 		System.out.println("**********开始子流程：判断数字英文长度是否超标**********");
 		DigitLetter digitLetter = new DigitLetter();
-		digitLetter.setStatus(1);
-		digitLetter.setIsCheckPhoneFormat(true);
+		digitLetter.setStatus(0);
+		//digitLetter.setIsCheckPhoneFormat(true);
 		digitLetter.setSrcText(text.getCurText());
 		digitLetter.setCurText(text.getCurText());
 		
@@ -46,7 +46,7 @@ public class TextLogicNode {
 		try {
 			decisionRlt = JudgeDecision.getDecision(UruleClient.KNOWLEDGE_SERVICE, digitLetter);
 		}catch (Exception e) {
-			System.out.println("判断数字英文长度是否超标节点计算异常，流程结束");
+			System.out.println("判断数字英文长度是否超标节点计算异常，流程中断！！！");
 			e.printStackTrace();
 			decisionRlt = -1;
 		}
@@ -72,8 +72,8 @@ public class TextLogicNode {
 		//return false;
 		System.out.println("**********开始子流程：判断敏感词是否违规**********");
 		Sensitivity sensitivity = new Sensitivity();
-		sensitivity.setStatus(1);
-		sensitivity.setIsUseCharWhiteNameList(true);
+		sensitivity.setStatus(0);
+		//sensitivity.setIsUseCharWhiteNameList(true);
 		sensitivity.setSrcText(text.getCurText());
 		sensitivity.setCurText(text.getCurText());
 		
@@ -81,7 +81,7 @@ public class TextLogicNode {
 		try {
 			decisionRlt = JudgeDecision.getDecision(UruleClient.KNOWLEDGE_SERVICE, sensitivity);
 		}catch (Exception e) {
-			System.out.println("判断敏感词是否违规节点计算异常，流程结束");
+			System.out.println("判断敏感词是否违规节点计算异常，流程中断！！！");
 			e.printStackTrace();
 			decisionRlt = -1;
 		}

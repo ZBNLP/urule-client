@@ -46,23 +46,17 @@ public class JudgeDecision {
 	public static void main(String[] args) throws IOException {
 		
 		Text text = new Text();
-    	text.setStatus(1);
-    	text.setIsSendBySys(false);
+    	text.setStatus(0);
+    	text.setResultCode(-1);
     	
-    	DigitLetter digitLetter = new DigitLetter();
-		digitLetter.setStatus(1);
-		digitLetter.setIsCheckPhoneFormat(true);
-		
-		Sensitivity sensitivity = new Sensitivity();
-		sensitivity.setStatus(1);
-		sensitivity.setIsUseCharWhiteNameList(true);
+    	/*Text text1 = new Text();
+    	text1.setStatus(0);
+    	text1.setResultCode(-1);*/
 		
 		int code;
 		code = getDecision(UruleClient.KNOWLEDGE_SERVICE, text);
 		System.out.println(code);
-		/*code = getDecision(UruleClient.KNOWLEDGE_SERVICE, digitLetter);
-		System.out.println(code);
-		code = getDecision(UruleClient.KNOWLEDGE_SERVICE, sensitivity);
+		/*code = getDecision(UruleClient.KNOWLEDGE_SERVICE, text1);
 		System.out.println(code);*/
 		
 		SpringApplication.exit(UruleClient.CONTEXT);
