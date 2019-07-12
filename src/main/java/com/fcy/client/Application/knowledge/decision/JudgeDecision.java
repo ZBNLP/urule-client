@@ -44,9 +44,12 @@ public class JudgeDecision {
 	}
 	
 	public static void main(String[] args) throws IOException {
+		String src = "一二三uuu零ABCdE煩，WWW123";
 		
 		Text text = new Text();
     	text.setStatus(0);
+    	text.setSrcText(src);
+    	text.setCurText(src);
     	text.setResultCode(-1);
     	
 		int code = -1;

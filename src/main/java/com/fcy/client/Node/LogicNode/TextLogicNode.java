@@ -28,8 +28,8 @@ public class TextLogicNode {
 	}
 	
 	@ExposeAction("判断总长度是否超标")
-	public static boolean judgeIsTotalLengthExceed(Text text) {
-		return false;
+	public static boolean judgeIsTotalLengthExceed(Text text, int lenThreshold) {
+		return text.getSrcText().length() > lenThreshold;
 	}
 	
 	@ExposeAction("判断数字英文长度是否超标")
@@ -61,7 +61,7 @@ public class TextLogicNode {
 	
 	@ExposeAction("判断是否还有内容")
 	public static boolean judgeIsOtherContentLeft(Text text) {
-		return true;
+		return text.getCurText().length() != 0;
 	}
 	
 	@ExposeAction("判断敏感词是否违规")
