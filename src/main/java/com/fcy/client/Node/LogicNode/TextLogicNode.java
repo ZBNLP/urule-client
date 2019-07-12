@@ -34,11 +34,9 @@ public class TextLogicNode {
 	
 	@ExposeAction("判断数字英文长度是否超标")
 	public static boolean judgeIsDigitLetterLengthExceed(Text text) {
-		//return false;
 		System.out.println("**********开始子流程：判断数字英文长度是否超标**********");
 		DigitLetter digitLetter = new DigitLetter();
 		digitLetter.setStatus(0);
-		//digitLetter.setIsCheckPhoneFormat(true);
 		digitLetter.setSrcText(text.getCurText());
 		digitLetter.setCurText(text.getCurText());
 		
@@ -51,7 +49,6 @@ public class TextLogicNode {
 			decisionRlt = -1;
 		}
 		System.out.println("**********结束子流程：判断数字英文长度是否超标**********");
-		//decisionRlt = -1;
 		if(1 == decisionRlt) {
 			return false;
 		}else if(0 == decisionRlt){
@@ -69,11 +66,9 @@ public class TextLogicNode {
 	
 	@ExposeAction("判断敏感词是否违规")
 	public static boolean judgeIsSensitiveIllegal(Text text) {
-		//return false;
 		System.out.println("**********开始子流程：判断敏感词是否违规**********");
 		Sensitivity sensitivity = new Sensitivity();
 		sensitivity.setStatus(0);
-		//sensitivity.setIsUseCharWhiteNameList(true);
 		sensitivity.setSrcText(text.getCurText());
 		sensitivity.setCurText(text.getCurText());
 		
@@ -86,7 +81,6 @@ public class TextLogicNode {
 			decisionRlt = -1;
 		}
 		System.out.println("**********结束子流程：判断敏感词是否违规**********");
-		//decisionRlt = -1;
 		if(1 == decisionRlt) {
 			return false;
 		}else if(0 == decisionRlt){

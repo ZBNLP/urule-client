@@ -49,16 +49,17 @@ public class JudgeDecision {
     	text.setStatus(0);
     	text.setResultCode(-1);
     	
-    	/*Text text1 = new Text();
-    	text1.setStatus(0);
-    	text1.setResultCode(-1);*/
+		int code = -1;
+		try {
+			code = getDecision(UruleClient.KNOWLEDGE_SERVICE, text);
+		}catch (Exception e) {
+			System.out.println("get decision error");
+			e.printStackTrace();
+		}finally {
+			System.out.println("EXIT APPLICATION...");
+			SpringApplication.exit(UruleClient.CONTEXT);
+		}
 		
-		int code;
-		code = getDecision(UruleClient.KNOWLEDGE_SERVICE, text);
 		System.out.println(code);
-		/*code = getDecision(UruleClient.KNOWLEDGE_SERVICE, text1);
-		System.out.println(code);*/
-		
-		SpringApplication.exit(UruleClient.CONTEXT);
 	}
 }
