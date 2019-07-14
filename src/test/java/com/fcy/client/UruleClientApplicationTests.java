@@ -49,48 +49,6 @@ public class UruleClientApplicationTests {
 
     }
 
-    public void st2() throws IOException {
-
-	// 创建一个KnowledgeSession对象
-	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext()
-		.getBean(KnowledgeService.BEAN_ID);
-	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("data1/custage");
-	KnowledgeSession session = KnowledgeSessionFactory.newKnowledgeSession(knowledgePackage);
-
-	Customer s = new Customer();
-
-	Integer integer = Integer.valueOf(11);
-	s.setAge(integer);
-	session.insert(s);
-	session.fireRules();
-	Customer result = (Customer) session.getParameter("cust");
-    }
-    
-    public void st3() throws IOException {
-
-    	// 创建一个KnowledgeSession对象
-    	KnowledgeService knowledgeService = (KnowledgeService) Utils.getApplicationContext()
-    		.getBean(KnowledgeService.BEAN_ID);
-    	KnowledgePackage knowledgePackage = knowledgeService.getKnowledge("demo/levelTest");
-    	KnowledgeSession session = KnowledgeSessionFactory.newKnowledgeSession(knowledgePackage);
-
-    	Customer s = new Customer();
-
-    	s.setGender(true);
-    	s.setAge(23);
-    	s.setLevel(3);
-    	session.insert(s);
-    	session.fireRules();
-    	
-    	/*Customer s = new Customer();
-    	 s.setGender(true);
-    	 Integer integer = Integer.valueOf(33);
-    	 s.setAge(integer);
-    	 session.insert(s);
-    	 session.fireRules();*/
-    	//Customer result = (Customer) session.getParameter("cust");
-    }
-    
     public void st4() throws IOException {
 
     	// 创建一个KnowledgeSession对象
